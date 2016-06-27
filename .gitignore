@@ -1,0 +1,27 @@
+
+# Compiled source #
+###################
+*.o
+*.so
+*.pyc
+*.com
+*.class
+*.dll
+*.exe
+
+# Swap/Log Files #
+##################
+*.swp
+*.log
+
+# OS generated Files #
+######################
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Thumbs.db
+enthumbs.db
+.directory
+
