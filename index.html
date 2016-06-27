@@ -25,14 +25,25 @@
       </div>   
       
        <div id=info> 
-        <b>Neue Meldungen:</b> <br> <br> <br> 
-           {{news}} 
-        <b>Veranstaltungen heute:</b> <br> <br> <br> 
-           {{today}} 
-        <b>Veranstaltungen Morgen: </b>
+        <b>Neue Meldungen:</b> <br>  
+           {{news}}<br> <br> 
+        <b>Veranstaltungen heute:</b> <br> 
+           {{today}}<br> <br>  
+        <b>Veranstaltungen Morgen:</b> <br> 
+           {{tomorow}}
        </div> 
       
-      <div id=menue></div>
+      <div id=menue>  
+          <h3>Menue:</h3>
+          <a href="{% url 'storage'%}"><div id= storage>Lager</div></a>
+          <a href="{% url 'clients'%}"><div id= clients>Kunden</div></a>
+          <a href="{% url 'assignments' %}"><div id= assignments>Alle Aufträge</div></a>
+          <a href="{% url 'bills' %}"><div id= bills>Rechnungen</div></a>
+        
+      
+      
+      
+      </div>
       
     
   </body>
