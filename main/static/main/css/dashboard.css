@@ -1,0 +1,95 @@
+#header{ 
+background-color:lightgray; 
+border: solid;
+border-color: black; 
+margin-left:0px; 
+margin-top:0px; 
+width: 1420px; 
+height: 40px;
+
+
+} 
+
+#header b{  
+font-size: 20px;
+} 
+
+#header span{ 
+float:center;
+}
+
+#logout{ 
+float:right;
+margin-left: 30px; 
+
+} 
+
+#logout a{   
+float: bottom;
+text-decoration: none; 
+color: black; 
+font-size: 17px;
+
+} 
+
+#info{ 
+margin-top:40px;
+
+} 
+
+#calender{ 
+   
+    width: 800px; 
+    height: 400px; 
+    float:right; 
+    position:top;
+    margin-top: 40px; 
+    margin-right: 100px;
+} 
+
+#menue{ 
+border-top:solid;
+margin-top:280px; 
+height: 335px;
+} 
+
+#menue #storage{ 
+    border: solid; 
+    height: 20px; 
+    width: 70px; 
+    margin-top: 20px;
+    text-align: center; 
+    color: black;
+  }  
+
+
+
+#menue #clients{ 
+    border: solid; 
+    height: 20px; 
+    width: 70px; 
+    margin-top: 20px;
+    text-align: center; 
+    color: black;
+  } 
+
+#menue #assignments{ 
+    border: solid; 
+    height: 40px; 
+    width: 70px; 
+    margin-top: 20px;
+    text-align: center;
+    color: black;
+  } 
+
+#menue #bills{ 
+    border: solid; 
+    height: 20px; 
+    width: 85px; 
+    margin-top: 20px;
+    text-align: center;
+    color: black;
+  }
+
+
+
