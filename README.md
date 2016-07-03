@@ -1,2 +1,2 @@
 # storagemanager
-This Project is for managin the mostly huge amount of equipment of professional event technicians in their storage. 
+This is a mostly private project for rewriting my website with the django Framework and bootstrap. 
