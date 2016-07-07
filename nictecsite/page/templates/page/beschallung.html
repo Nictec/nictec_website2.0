@@ -1,0 +1,116 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head> 
+    {% load staticfiles %}
+    <meta charset="utf-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1">  
+    <!--Bootstrap CSS delivered by a content delivery system-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">  
+      <!--custom css-->
+   <link rel="stylesheet" href="{% static "page/css/custom_noheader.css" %}"> 
+    
+    <!--JQuery for transparent header--> 
+     <script src="{% static "page/javascript/transparent.js" %}"></script>
+    
+    <title>Nictec Beschallung</title>
+</head>   
+    <body> 
+        <!--navigation--> 
+        <nav role="navigation" class="navbar navbar-inverse navbar-fixed-top">  
+        
+            <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    </button>
+                    <a href="{% url 'home' %}"><img class="navbar-brand" src= "{% static "page/pictures/logo_heller.png"  %}"/></a>
+            </div> 
+            
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav"> 
+                    <!--Links-->
+                    <li><a href="{% url 'home' %}">HOME </a></li> 
+                    
+                     <li class="dropdown">
+                <a href="{% url 'licht' %}" class="dropdown-toggle" role="button" aria-haspopup="true" aria-expanded="false">LICHTPAKETE <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li><a href="#">Licht mini</a></li>
+                    <li><a href="#">Licht small</a></li>
+                  
+    </ul>
+        </li>
+                    <li class="dropdown">
+                <a href="{% url 'ton' %}" class="dropdown-toggle"  role="button" aria-haspopup="true" aria-expanded="false">BESCHALLUNGSPAKETE <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li><a href="#">Beschallung mini</a></li>
+                  
+    </ul>
+        </li>  
+                  <li><a href="{% url 'kontakt' %}">KONTAKT/BUCHUNG</a></li> 
+                  <li><a href="{% url 'technik' %}">TECHNIK</a></li> 
+                    
+                     <li class="dropdown">
+                <a href="{% url 'ueber' %}" class="dropdown-toggle"  role="button" aria-haspopup="true" aria-expanded="false">ÜBER UNS <span class="caret"></span></a>
+                <ul class="dropdown-menu"> 
+                     <li><a href="#">Impressum</a></li> 
+                     <li><a href="#">Datenschutz</a></li>
+                  
+    </ul>
+        </li>  
+    </ul>
+      
+     
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#">Login</a></li>
+        
+          </ul>
+        </li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav> 
+
+
+            
+        
+   
+         
+        <!--page header--> 
+        <div class="page-header">
+            <h1>Beschallungspakete</h1>
+        </div>
+        <!--content--> 
+        <div class="wrapper">  
+            
+          
+        </div> 
+      
+        
+        <!--footer--> 
+      <div class="footer navbar-inverse navbar-default-bottom" role="navigation">
+    <div class="navbar-text pull-left"></div>
+    <div class="container"> 
+          <div class="navbar-text pull-left">
+         <p>© Nictec Veranstaltungstechnik. Alle Rechte vorbehalten.</p> 
+     </div> 
+     </div> 
+    </div>  
+    
+    
+            
+        </div> 
+      
+        
+        
+        
+        
+       <!--ajax and jquery loading script--> 
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    </body>
+    
+</html>
