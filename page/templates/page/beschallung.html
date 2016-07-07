@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head> 
     {% load staticfiles %}
@@ -7,9 +7,12 @@
     <!--Bootstrap CSS delivered by a content delivery system-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">  
       <!--custom css-->
-   <link rel="stylesheet" href="{% static "page/css/custom.css" %}">
+   <link rel="stylesheet" href="{% static "page/css/custom_noheader.css" %}"> 
     
-    <title>Nictec Home</title>
+    <!--JQuery for transparent header--> 
+     <script src="{% static "page/javascript/transparent.js" %}"></script>
+    
+    <title>Nictec Beschallung</title>
 </head>   
     <body> 
         <!--navigation--> 
@@ -24,25 +27,40 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     </button>
-                    <img class="navbar-brand" src= "{% static "page/pictures/logo_heller.png"  %}"/>
+                    <a href="{% url 'home' %}"><img class="navbar-brand" src= "{% static "page/pictures/logo_heller.png"  %}"/></a>
             </div> 
             
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav">
-                    <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
-                    <li><a href="#">Link</a></li>
-                    <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                <ul class="nav navbar-nav"> 
+                    <!--Links-->
+                    <li><a href="{% url 'home' %}">HOME </a></li> 
+                    
+                     <li class="dropdown">
+                <a href="{% url 'licht' %}" class="dropdown-toggle" role="button" aria-haspopup="true" aria-expanded="false">LICHTPAKETE <span class="caret"></span></a>
                 <ul class="dropdown-menu">
-                    <li><a href="#">Action</a></li>
-                    <li><a href="#">Another action</a></li>
-                    <li><a href="#">Something else here</a></li>
-                    <li role="separator" class="divider"></li>
-                    <li><a href="#">Separated link</a></li>
-                    <li role="separator" class="divider"></li>
-                    <li><a href="#">One more separated link</a></li>
+                    <li><a href="#">Licht mini</a></li>
+                    <li><a href="#">Licht small</a></li>
+                  
     </ul>
         </li>
+                    <li class="dropdown">
+                <a href="{% url 'ton' %}" class="dropdown-toggle"  role="button" aria-haspopup="true" aria-expanded="false">BESCHALLUNGSPAKETE <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li><a href="#">Beschallung mini</a></li>
+                  
+    </ul>
+        </li>  
+                  <li><a href="{% url 'kontakt' %}">KONTAKT/BUCHUNG</a></li> 
+                  <li><a href="{% url 'technik' %}">TECHNIK</a></li> 
+                    
+                     <li class="dropdown">
+                <a href="{% url 'ueber' %}" class="dropdown-toggle"  role="button" aria-haspopup="true" aria-expanded="false">ÜBER UNS <span class="caret"></span></a>
+                <ul class="dropdown-menu"> 
+                     <li><a href="#">Impressum</a></li> 
+                     <li><a href="#">Datenschutz</a></li>
+                  
+    </ul>
+        </li>  
     </ul>
       
      
@@ -59,31 +77,12 @@
 
             
         
-    <!--carousel-->    
-    <div id="myCarousel" class="carousel slide" data-ride="carousel">
-    <!-- Indicators -->
-      <ol class="carousel-indicators">
-        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-    
-      </ol> 
-      
-      <div class="carousel-inner" role="listbox">
-        <div class="item active">
-            <img src="{% static "page/pictures/banner-landing.jpg" %}" alt="banner"/ id= "picture">
+   
+         
+        <!--page header--> 
+        <div class="page-header">
+            <h1>Beschallungspakete</h1>
         </div>
-    
-        <!-- Left and right controls -->
-        <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
-        </a>
-        <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
-          </a> 
-          
-        </div> 
-        
         <!--content--> 
         <div class="wrapper">  
             
@@ -109,7 +108,7 @@
         
         
         
-       <!--ajax scripts--> 
+       <!--ajax and jquery loading script--> 
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
         <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     </body>
