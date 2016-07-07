@@ -1,38 +1,44 @@
 #header{ 
-    background-color:lightgray; 
-    border: solid;
-    border-color: black; 
-    margin-left:0px; 
-    margin-top:0px; 
-    width: 1420px; 
-    height: 40px;
+background-color:lightgray; 
+border: solid;
+border-color: black; 
+margin-left:0px; 
+margin-top:0px; 
+width: 1420px; 
+height: 40px;
+
+
 } 
 
 #header b{  
-    font-size: 20px;
+font-size: 20px;
 } 
 
 #header span{ 
-    float:center;
+float:center;
 }
 
 #logout{ 
-    float:right;
-    margin-left: 30px; 
+float:right;
+margin-left: 30px; 
+
 } 
 
 #logout a{   
-    float: bottom;
-    text-decoration: none; 
-    color: black; 
-    font-size: 17px;
+float: bottom;
+text-decoration: none; 
+color: black; 
+font-size: 17px;
+
 } 
 
 #info{ 
-    margin-top:40px;
+margin-top:40px;
+
 } 
 
 #calender{ 
+   
     width: 800px; 
     height: 400px; 
     float:right; 
@@ -42,13 +48,11 @@
 } 
 
 #menue{ 
-    border-top:solid;
-    margin-top:280px; 
-    height: 335px;
+border-top:solid;
+margin-top:280px; 
+height: 335px;
 } 
-#menue>a{
-    text-decoration: none;
-}
+
 #menue #storage{ 
     border: solid; 
     height: 20px; 
@@ -56,7 +60,7 @@
     margin-top: 20px;
     text-align: center; 
     color: black;
-}  
+  }  
 
 
 
@@ -67,7 +71,7 @@
     margin-top: 20px;
     text-align: center; 
     color: black;
-} 
+  } 
 
 #menue #assignments{ 
     border: solid; 
@@ -76,7 +80,7 @@
     margin-top: 20px;
     text-align: center;
     color: black;
-} 
+  } 
 
 #menue #bills{ 
     border: solid; 
@@ -85,7 +89,7 @@
     margin-top: 20px;
     text-align: center;
     color: black;
-}
+  }
 
 
 
