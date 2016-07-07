@@ -9,8 +9,8 @@
 }  
 
 .navbar.scrolled {
-    background: rgb(68, 68, 68); //IE
-    background: rgba(0, 0, 0, 0.78); //NON-IE
+    background: rgb(68, 68, 68); /*IE*/
+    background: rgba(0, 0, 0, 0.78); /*NON-IE*/
 }
 
 .navbar-nav > li > a {
@@ -20,9 +20,14 @@
     font-weight: bold;
 } 
 
+/*carousel*/
+#myCarousel {
+    margin-top: 110px;
+}
+
 .carousel-inner > .item > img { 
     width: 100%; 
-    height: 600px;
+    height: 500px;
 } 
 
 .carousel-inner{ 
@@ -39,7 +44,6 @@
     padding-right: 50px; 
     padding-left: 30px; 
 }  
-
 .wrapper{ 
     min-height: 500px; 
     padding-top: 30px; 

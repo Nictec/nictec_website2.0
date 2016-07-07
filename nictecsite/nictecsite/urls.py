@@ -20,5 +20,5 @@ urlpatterns = [
     url(r'^database/', admin.site.urls), 
     url(r'^admin/', include('backend.urls')),
     url(r'^', include('page.urls')),
-    url(r'^lager/', include('main.urls')),
+    url(r'^lager/', include('storage.urls')),
 ]
