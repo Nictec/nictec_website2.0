@@ -5,8 +5,12 @@ from .models import news
 
 # Create your views here. 
 def index(request):  
-    news = news.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
-    return render(request, 'page/index.html', {'news':news}) 
+    news1 = news.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
+    if news1:
+        return render(request, 'page/index.html', {'news':news1}) 
+    else:
+        print('error')
+        return render(request, 'page/licht.html')
 
 def light(request): 
     return render(request, 'page/licht.html') 
