@@ -97,7 +97,10 @@
         <!--page header--> 
         <div class="page-header">
             <h1>News</h1> 
-            {{news}}
+            {% for news in news %}
+                <h3><a href="">{{ news.title }}</a></h3>
+                <p>{{ news.text|linebreaksbr }}</p> 
+            {% endfor %}
         </div>
         <!--content--> 
         <div class="wrapper">  
