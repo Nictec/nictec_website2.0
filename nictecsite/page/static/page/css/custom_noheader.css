@@ -59,6 +59,16 @@ padding-left: 50px;
 
 .page-header > h1{ 
     font-weight: bold;
+} 
+
+.wrapper .pull-right{  
+ 
+  height: 641px; 
+  
+ 
+  padding-right:300px; 
+  
+    
 }
 
 

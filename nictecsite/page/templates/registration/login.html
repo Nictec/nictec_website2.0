@@ -7,7 +7,8 @@
     <!--Bootstrap CSS delivered by a content delivery system-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">  
       <!--custom css-->
-   <link rel="stylesheet" href="{% static "page/css/custom_noheader.css" %}"> 
+   <link rel="stylesheet" href="{% static "page/css/custom_noheader.css" %}">  
+    
     <!--favicon-->
     <link rel="shortcut icon" type="image/png" href="{% static "page/pictures/favicon.ico" %}"/>
     
@@ -35,10 +36,10 @@
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav"> 
                     <!--Links-->
-                    <li class="active"><a href="{% url 'home' %}">HOME <span class="sr-only">(current)</span></a></li> 
+                    <<li><a href="{% url 'home' %}">HOME </a></li> 
                     
                      <li class="dropdown">
-                <a href="{% url 'licht' %}" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">LICHTPAKETE <span class="caret"></span></a>
+                <a href="{% url 'licht' %}" class="dropdown-toggle" role="button" aria-haspopup="true" aria-expanded="false">LICHTPAKETE <span class="caret"></span></a>
                 <ul class="dropdown-menu">
                     <li><a href="#">Licht mini</a></li>
                     <li><a href="#">Licht small</a></li>
@@ -46,21 +47,21 @@
     </ul>
         </li>
                     <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">BESCHALLUNGSPAKETE <span class="caret"></span></a>
+                <a href="{% url 'ton' %}" class="dropdown-toggle"  role="button" aria-haspopup="true" aria-expanded="false">BESCHALLUNGSPAKETE <span class="caret"></span></a>
                 <ul class="dropdown-menu">
                     <li><a href="#">Beschallung mini</a></li>
                   
     </ul>
         </li>  
-                  <li><a href="#">KONTAKT/BUCHUNG</a></li> 
-                  <li><a href="#">TECHNIK</a></li> 
+                  <li><a href="{% url 'kontakt' %}">KONTAKT/BUCHUNG</a></li> 
+                  <li><a href="{% url 'technik' %}">TECHNIK</a></li> 
                     
                      <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">ÜBER UNS <span class="caret"></span></a>
-                <ul class="dropdown-menu">
-                    <li><a href="#">wer wir sind</a></li> 
+                <a href="{% url 'ueber' %}" class="dropdown-toggle"  role="button" aria-haspopup="true" aria-expanded="false">ÜBER UNS <span class="caret"></span></a>
+                <ul class="dropdown-menu"> 
                      <li><a href="#">Impressum</a></li> 
                      <li><a href="#">Datenschutz</a></li>
+                  
                   
     </ul>
         </li>  
@@ -84,23 +85,24 @@
          
         <!--page header--> 
         <div class="page-header">
-            <h1>Buchen Sie uns:</h1>
+            <h1>Login</h1>
         </div>
         <!--content--> 
-          
         <div class="wrapper">  
-             <form role="form">
-                <div class="form-group">
-                    <label for="email">Email address:</label>
-                    <input type="email" class="form-control" id="email">
-                </div>
-                <div class="form-group">
-                    <label for="pwd">Password:</label>
-                    <input type="password" class="form-control" id="pwd">
-                </div>
-     
-                <button type="submit" class="btn btn-default">Submit</button>
-                </form>  
+         {% if form.errors %}
+    <p class="error">Sorry, that's not a valid username or password</p>
+  {% endif %}
+
+  <form action="." method="post">
+    <label for="username">User name:</label>
+    <input type="text" name="username" value="" id="username">
+    <label for="password">Password:</label>
+    <input type="password" name="password" value="" id="password">
+
+    <input type="submit" value="login" />
+    
+      {% csrf_token %}
+  </form>   
           
         </div> 
       

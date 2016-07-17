@@ -8,8 +8,10 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">  
       <!--custom css-->
    <link rel="stylesheet" href="{% static "page/css/custom.css" %}"> 
+    <!--favicon-->
+    <link rel="shortcut icon" type="image/png" href="{% static "page/pictures/favicon.ico" %}"/>
     
-    <!--JQuery for transparent header--> 
+    <!--javascript for transparent header--> 
      <script src="{% static "page/javascript/transparent.js" %}"></script>
     
     <title>Nictec Home</title>
@@ -65,7 +67,7 @@
           
          
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#">Login</a></li>
+                    <li><a href="{% url 'login' %}">Login für Miarbeiter</a></li>
             
                 </ul>
             </div><!-- /.navbar-collapse -->
@@ -96,16 +98,17 @@
          
         <!--page header--> 
         <div class="page-header">
-            <h1>News</h1> 
+            <h1>News</h1>  
+        </div>
+        <!--content--> 
+        
+        <div class="wrapper">  
+           <div id= database>
             {% for news in news %}
                 <h3><a href="">{{ news.title }}</a></h3>
                 <p>{{ news.text|linebreaksbr }}</p> 
-            {% endfor %}
-        </div>
-        <!--content--> 
-        <div class="wrapper">  
-            
-          
+            {% endfor %} 
+           </div>
         </div> 
       
         
@@ -114,7 +117,8 @@
         <div class="navbar-text pull-left"></div>
         <div class="container"> 
             <div class="navbar-text pull-left">
-            <p>© Nictec Veranstaltungstechnik. Alle Rechte vorbehalten.</p> 
+                  <p>© Nictec Veranstaltungstechnik. Alle Rechte vorbehalten. </p>
+        
         </div> 
     </div> 
 </div>  

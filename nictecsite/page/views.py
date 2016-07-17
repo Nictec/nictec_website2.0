@@ -1,4 +1,5 @@
 from django.shortcuts import render 
+from django.contrib.auth.decorators import login_required
 from django.utils import timezone
 from .models import news
 
@@ -25,4 +26,21 @@ def tec(request):
     return render(request, 'page/technik.html') 
 
 def ueber(request): 
-    return render(request, 'page/ueber.html')
+    return render(request, 'page/ueber.html')  
+
+def logout_view(request): 
+    auth.logout(request) 
+    return HttpResponseRedirect("intern/loggedout/")
+
+@login_required
+def loggedin(request): 
+    return render(request, 'page/loggedin.html')  
+
+def loggedout(request): 
+    return render(request, 'page/loggedout.html')
+       
+    
+        
+   
+        
+    
