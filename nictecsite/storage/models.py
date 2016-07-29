@@ -5,6 +5,7 @@ from django.db import models
 # Create your models here.
 class equipment(models.Model): 
     name = models.CharField(max_length=30) 
+    fabricator = models.CharField(max_length=30, default='-') 
     storeplace = models.IntegerField() 
     labor_choices = (  
         ('L', 'Licht'), 

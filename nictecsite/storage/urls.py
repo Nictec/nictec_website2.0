@@ -8,6 +8,8 @@ urlpatterns = [
     url(r'^storage/', views.storage, name='storage'),  
     url(r'^clients/', views.clients, name='clients'), 
     url(r'assignments/', views.assignments, name='assignments'), 
-    url(r'^bills/', views.bills, name='bills')
+    url(r'^bills/', views.bills, name='bills'), 
+    url(r'^reservations/', views.reservations, name='reservations'),
     
 ]
+
