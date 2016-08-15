@@ -14,4 +14,19 @@ class equipment(models.Model):
     ) 
     labor = models.CharField(max_length=1, choices=labor_choices)  
    
+    def __str__(self): 
+        return self.name
     
+    
+class client(models.Model): 
+    firstname = models.CharField(max_length=30) 
+    secondname = models.CharField(max_length=30) 
+    email = models.EmailField() 
+    post_code = models.IntegerField()
+    city = models.CharField(max_length=30) 
+    street= models.CharField(max_length=30)   
+        
+        
+    def __str__(self):              
+        return "%s %s" % (self.firstname, self.secondname)
+        

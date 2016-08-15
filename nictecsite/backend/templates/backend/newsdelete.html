@@ -1,0 +1,16 @@
+{% extends "main/base.html" %}
+
+{% block content %}
+
+<h1>Artikel Löschen</h1>
+
+<h6>Wollen Sie den Artikel {{ news }} wirklich löschen?</h6>
+
+<form action="{% url "newsdelete" pk=news.id %}" method="POST">
+  {% csrf_token %}
+
+  <input type="submit" class="btn btn-success" value="Ja Löschen." />
+  <a href="{% url "news" %}"class="btn btn-danger" role="button">Nein, Abbrechen.</a>
+</form>
+
+{% endblock %}

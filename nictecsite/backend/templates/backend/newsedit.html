@@ -1,0 +1,33 @@
+{% extends "backend/base.html" %}
+ 
+{% block title %} 
+    Dashboard
+{% endblock title %} 
+
+{% block site_header %} 
+    Dashboard
+{% endblock site_header %}
+
+{% block content %} 
+<h3>Alle News</h3>
+<a href="{% url "news_add" %}" class="btn btn-primary pull-right" role="button">News erstellen</a> 
+<div id="list" style="padding-top:50px"> 
+    <table class="table" style="border: 1px solid black"> 
+        {% for news in object_list %} 
+        <tr>
+            <th>{{ news.title }} 
+            (<a href="{% url "newsupdate" pk=news.id %}">bearbeiten</a>) 
+            {% if news.id %}
+               (<a href="{% url "newsdelete" pk=news.id %}">löschen</a>)
+            {% endif %}
+            </th> 
+        </tr>
+        {% endfor %}
+    </table> 
+</div>
+        
+        
+    
+        
+
+{% endblock content %}

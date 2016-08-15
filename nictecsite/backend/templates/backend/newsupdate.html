@@ -9,10 +9,10 @@
 {% endblock site_header %}
 
 {% block content %}
-    <!--alert--> 
-        
-        
-     hallo
+  <form action="" method="post">{% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Update" />
+</form>
         
 
 {% endblock content %}

@@ -1,0 +1,28 @@
+{% extends "backend/base.html" %}
+ 
+{% block title %} 
+    Dashboard
+{% endblock title %} 
+
+{% block site_header %} 
+    Dashboard
+{% endblock site_header %}
+
+{% block content %}
+    <!--Alert--> 
+{% for message in messages %}
+    <div class="alert alert-{{ message.tags }}">{{ message }}</div> 
+{% endfor %} 
+<h3>Neue News hinzufügen</h3> 
+<h1> </h1>   
+<div class="form-group">
+    <form action="" method="post">  
+        {% csrf_token %} 
+        {{ form.as_p }} 
+        <input type="submit" value="Speichern und neu" name=_save/> 
+    </form> 
+</div>
+ 
+        
+
+{% endblock content %}
