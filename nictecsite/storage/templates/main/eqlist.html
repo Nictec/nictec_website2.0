@@ -18,11 +18,10 @@
     {% for equipment in object_list %}
         <tr>
             <th>{{ equipment.name }} 
-                (<a href="{% url "storageupdate" pk=equipment.id %}">bearbeiten</a>) 
-                {% if equipment.id %}
-               (<a href="{% url "storagedelete" pk=equipment.id %}">löschen</a>)
-                {% endif %}
-            </th> 
+                {% with equipment.id|stringformat:"s" as equipment_id %}
+                 (<a href="{% url "eqadd"%}?eq={{ equipment_id }}">auswählen</a>) </th>    
+                {% endwith %}
+              
             
             {% empty %}
             <th>Kein Equipment</th>

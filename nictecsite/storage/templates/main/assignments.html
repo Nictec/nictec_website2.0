@@ -1,0 +1,24 @@
+{% extends "main/base.html" %}
+ 
+{% block title %} 
+    Dashboard
+{% endblock title %} 
+
+{% block site_header %} 
+    Dashboard
+{% endblock site_header %}
+
+{% block content %} 
+    <a href="{% url 'newevent' %}" class="btn btn-primary pull-right" role="button">Neue Veranstaltung</a><br> 
+<table class=table style="border: 1px solid black">
+        {% for Assignment in object_list %}
+        <tr>
+            <th>{{ Assignment.name }} </th> 
+            
+            {% empty %}
+            <th>Keine Veranstaltungen</th>
+        </tr>
+    </table> 
+{% endfor %} 
+
+{% endblock content %}

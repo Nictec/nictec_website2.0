@@ -10,7 +10,8 @@ urlpatterns = [
     url(r'^update_news(?P<pk>\d+)/$', newsupdate.as_view(), name='newsupdate'), 
     url(r'^delete/(?P<pk>\d+)/$', newsdelete.as_view(), name='newsdelete'),
     url(r'^user_add/$', views.useradd, name="user_add"), 
-    url(r'^news_add/$', views.newsadd, name="news_add"),
+    url(r'^news_add/$', views.newsadd, name="news_add"), 
+    
 
 ] 
 

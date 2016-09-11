@@ -12,7 +12,8 @@ class equipment(models.Model):
         ('T', 'Ton'), 
         ('R', 'rigging'),
     ) 
-    labor = models.CharField(max_length=1, choices=labor_choices)  
+    labor = models.CharField(max_length=1, choices=labor_choices) 
+    event = models.ForeignKey('Assignment', blank = True, null = True)
    
     def __str__(self): 
         return self.name
@@ -24,9 +25,29 @@ class client(models.Model):
     email = models.EmailField() 
     post_code = models.IntegerField()
     city = models.CharField(max_length=30) 
-    street= models.CharField(max_length=30)   
+    street= models.CharField(max_length=30) 
+    assignments = models.ForeignKey('client', blank=True,
+    null=True,)
         
         
     def __str__(self):              
         return "%s %s" % (self.firstname, self.secondname)
         
+        
+        
+class Assignment(models.Model): 
+    name = models.CharField(max_length=30) 
+    Type_choices = ( 
+        ('R', 'Rental'), 
+        ('FS', 'Full Service'),
+    ) 
+    city = models.CharField(max_length=30) 
+    street= models.CharField(max_length=30)
+    date = models.DateField() 
+    GuestNumber = models.IntegerField() 
+    description = models.TextField()
+     
+    
+    
+    def __str__(self): 
+        return self.name

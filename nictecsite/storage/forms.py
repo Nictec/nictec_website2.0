@@ -1,5 +1,5 @@
 from django import forms 
-from .models import equipment 
+from .models import equipment, Assignment 
 
 
  
@@ -15,6 +15,13 @@ class neweqForm(forms.ModelForm):
         model = equipment 
         fields = "__all__" 
  
+
+
+class neweventForm(forms.ModelForm): 
+    
+    class Meta: 
+        model = Assignment 
+        fields =['name', 'city', 'street', 'date', 'GuestNumber', 'description'] 
 
     
     
