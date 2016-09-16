@@ -1,9 +1,9 @@
 from django.shortcuts import render, redirect, HttpResponse
 import datetime 
 from .forms import neweqForm, neweventForm 
-from storage.models import equipment, Assignment
+from storage.models import Equipment, Assignment
 from django.contrib import messages 
-from django.views.generic import ListView 
+from django.views.generic import ListView, DetailView 
 from django.views.generic import UpdateView 
 from django.views.generic import DeleteView 
 from django.core.urlresolvers import reverse
@@ -18,18 +18,18 @@ def dashboard(request):
 
 
 class storage(ListView): 
-    model = equipment 
+    model = Equipment 
     template_name= 'main/storage.html' 
     
 class storageupdate(UpdateView): 
-    model = equipment 
+    model = Equipment 
     template_name= 'main/storageupdate.html' 
     fields = ['name', 'fabricator', 'storeplace'] 
     def get_success_url(self):
         return reverse('storage')
     
 class storagedelete(DeleteView): 
-      model = equipment
+      model = Equipment
       template_name = 'main/storagedelete.html' 
       def get_success_url(self): 
             return reverse('storage')
@@ -57,7 +57,7 @@ def new_assignment(request):
             event = form.save(commit=False) 
             event.save() 
             messages.success(request, "Erfolgreich gespeichert") 
-            request.session['event_name'] = event.name
+            request.session['event_name'] = event.id
             # redirect to a new URL:
             return redirect('/lager/chose') 
     # if a GET (or any other method) we'll create a blank form
@@ -100,17 +100,39 @@ def neweq(request):
 
 def eqadd(request): 
     eventname = request.session['event_name']  
-    eqid = request.GET.get('eq', '')
-    return HttpResponse(eventname, eqid)
+    eqid = request.GET.get('eq', '') 
+    
+   
+    Equipment.objects.filter(pk=eqid).update(event= eventname)
+    return redirect("/lager/chose")
+    
     
     
 
 
 class eqlist(ListView): 
-    model=equipment 
+    model=Equipment 
     template_name='main/eqlist.html' 
     
     
+    
+class ass_detail(DetailView): 
+    model = Assignment
+    template_name='main/ass_detail.html' 
+    queryset = Assignment.objects.select_related() 
+    
+    
+    
+def del_session(request): 
+    del request.session['event_name'] 
+    return redirect('/lager/chose')
+    
+     
+        
+        
+        
+        
+
     
 
 

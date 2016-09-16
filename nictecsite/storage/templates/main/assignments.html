@@ -13,7 +13,9 @@
 <table class=table style="border: 1px solid black">
         {% for Assignment in object_list %}
         <tr>
-            <th>{{ Assignment.name }} </th> 
+            <th>{{ Assignment.name }}  
+            (<a href="{% url 'ass_detail' pk=Assignment.id %}">Details</a>)
+            </th> 
             
             {% empty %}
             <th>Keine Veranstaltungen</th>

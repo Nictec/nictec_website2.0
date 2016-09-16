@@ -1,5 +1,5 @@
 from django import forms 
-from .models import equipment, Assignment 
+from .models import Equipment, Assignment 
 
 
  
@@ -12,7 +12,7 @@ class neweqForm(forms.ModelForm):
      
     
     class Meta: 
-        model = equipment 
+        model = Equipment 
         fields = "__all__" 
  
 

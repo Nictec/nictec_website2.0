@@ -3,7 +3,7 @@ from __future__ import unicode_literals
 from django.db import models
 
 # Create your models here.
-class equipment(models.Model): 
+class Equipment(models.Model): 
     name = models.CharField(max_length=30) 
     fabricator = models.CharField(max_length=30, default='-') 
     storeplace = models.IntegerField() 
@@ -13,7 +13,8 @@ class equipment(models.Model):
         ('R', 'rigging'),
     ) 
     labor = models.CharField(max_length=1, choices=labor_choices) 
-    event = models.ForeignKey('Assignment', blank = True, null = True)
+    event = models.ForeignKey('Assignment', blank = True, null = True,) 
+    number = models.IntegerField(default=1)
    
     def __str__(self): 
         return self.name
@@ -37,10 +38,16 @@ class client(models.Model):
         
 class Assignment(models.Model): 
     name = models.CharField(max_length=30) 
-    Type_choices = ( 
+    TYPE_CHOICES = ( 
         ('R', 'Rental'), 
         ('FS', 'Full Service'),
     ) 
+    
+    Type = models.CharField(
+        max_length=2,
+        choices=TYPE_CHOICES,
+        default='Rental', 
+        )
     city = models.CharField(max_length=30) 
     street= models.CharField(max_length=30)
     date = models.DateField() 
