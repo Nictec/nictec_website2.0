@@ -1,0 +1,50 @@
+{% extends "main/base.html" %} 
+
+{% block title %} 
+    Picklist
+{% endblock title %}  
+
+{% block site_header %} 
+    Benötigtes Equipment:
+{% endblock site_header %} 
+
+{% block content %} 
+    <style> 
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+</style>
+
+<h3>Noch nicht geladenes Equipment:</h3>
+<table> 
+    <tr> 
+        <th>Hersteller</th> 
+        <th>Name</th> 
+        <th>Gewerk</th> 
+        <th>Status</th>
+    </tr> 
+   {% for equipment in equipment %}  
+    <tr> 
+    <td>{{equipment.fabricator}}</td> 
+    <td>{{equipment.name}}</td> 
+    <td>{{equipment.labor}}</td> 
+    <td>test</td>
+    </tr> 
+    {% endfor %}
+</table>
+ 
+
+
+{% endblock content %}

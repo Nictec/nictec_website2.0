@@ -41,18 +41,26 @@ tr:nth-child(even) {
 
 
 <h2>Benötigtes equipment:</h2> 
-{% for equipment in object.equipment_set.all %} 
+
 <table> 
   <tr>
     <th>Hersteller</th> 
     <th>Name</th> 
+    <th>Gewerk</th>
   </tr> 
+    {% for equipment in object.equipment_set.all %} 
   <tr> 
     <td>{{equipment.fabricator}}</td> 
-    <td>{{equipment.name}}</td>
-  </tr>
-</table> 
-{%endfor%}
+    <td>{{equipment.name}}</td> 
+    <td>{{equipment.labor}}</td>
+  </tr> 
+    {%endfor%} 
+</table>  
+
+
+
+
+
     
 {% endblock content %}  
 

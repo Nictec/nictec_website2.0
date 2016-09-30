@@ -20,7 +20,7 @@
             <th>{{ equipment.name }} 
                 {% with equipment.id|stringformat:"s" as equipment_id %}
                  (<a href="{% url "eqadd"%}?eq={{ equipment_id }}">auswählen</a>) </th>    
-                {% endwith %}
+                
               
             
             {% empty %}

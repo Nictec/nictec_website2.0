@@ -14,7 +14,10 @@
         {% for Assignment in object_list %}
         <tr>
             <th>{{ Assignment.name }}  
-            (<a href="{% url 'ass_detail' pk=Assignment.id %}">Details</a>)
+            (<a href="{% url 'ass_detail' pk=Assignment.id %}">Details</a>) 
+            {% with Assignment.id|stringformat:"s" as Assignment_id %}
+            (<a href="{% url 'picklist' %}?eq= {{Assignment_id}}">Sammelliste</a>) 
+            {% endwith %}    
             </th> 
             
             {% empty %}

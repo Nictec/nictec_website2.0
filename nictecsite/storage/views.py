@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, HttpResponse
 import datetime 
 from .forms import neweqForm, neweventForm 
-from storage.models import Equipment, Assignment
+from storage.models import Equipment, Assignment, client
 from django.contrib import messages 
 from django.views.generic import ListView, DetailView 
 from django.views.generic import UpdateView 
@@ -131,6 +131,15 @@ def del_session(request):
         
         
         
+class userlist(ListView): 
+    model=client 
+    template_name='main/clients.html' 
+    
+def picklist(request): 
+    eqid = request.GET.get('eq', '') 
+    
+    equipment_py = Equipment.objects.filter(event = eqid)
+    return render(request, 'main/picklist.html', {'equipment': equipment_py})
         
 
     
