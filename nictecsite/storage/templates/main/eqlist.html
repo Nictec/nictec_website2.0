@@ -9,9 +9,28 @@
 {% endblock site_header %}
 
 {% block content %} 
+
  {% for message in messages %}
     <div class="alert alert-{{ message.tags }}">{{ message }}</div>
-{% endfor %}
+{% endfor %} 
+<script> 
+    document.getElementById('filter').onchange = function() {
+    localStorage.setItem('filter', document.getElementById('filter').value);
+}
+
+if (localStorage.getItem('filter')) {
+    document.getElementById('filter').options[localStorage.getItem('filter')].selected = true;
+}
+</script>
+
+<form method="get"> 
+  <select name='filter' id='filter' onchange="this.form.submit()" > 
+    <option > -- Bitte Gewerk Auswählen -- </option>
+    <option value="L" >Licht</option>
+    <option value="T" >Ton</option>
+    <option value="R" >Rigging</option>
+  </select>
+</form>
 <a href="{% url "neweq" %}" class="btn btn-primary pull-right" role="button">Equipment einlagern</a> 
 <div id="list" style="padding-top:50px">
 <table class="table" style="border: 1px solid black"> 
@@ -19,15 +38,16 @@
         <tr>
             <th>{{ equipment.name }} 
                 {% with equipment.id|stringformat:"s" as equipment_id %}
-                 (<a href="{% url "eqadd"%}?eq={{ equipment_id }}">auswählen</a>) </th>    
-                
-              
-            
-            {% empty %}
-            <th>Kein Equipment</th>
-        </tr>
+                 (<a href="{% url "eqadd"%}?eq={{ equipment_id }}">auswählen</a>) </th> 
+                 {% endwith %}
+                </tr> 
+         
+         {% endfor %} 
     </table> 
-{% endfor %} 
+ 
+
+
+
 </div> 
 
 <a href="{% url "delete_session" %}" class="btn btn-primary pull-right" role="button">Speichern</a>

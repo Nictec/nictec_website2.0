@@ -114,6 +114,20 @@ class eqlist(ListView):
     model=Equipment 
     template_name='main/eqlist.html' 
     
+    def get_queryset(self):
+        queryset = Equipment.objects.all()
+
+        if self.request.GET.get('filter'): 
+            queryset = queryset.filter(labor=self.request.GET.get('filter')) 
+        return queryset
+        
+        
+  
+   
+        
+        
+       
+    
     
     
 class ass_detail(DetailView): 
