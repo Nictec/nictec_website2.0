@@ -1,20 +1,28 @@
 from django.shortcuts import render, redirect, HttpResponse
 import datetime 
-from .forms import neweqForm, neweventForm 
+from .forms import neweqForm, neweventForm, FilterForm 
 from storage.models import Equipment, Assignment, client
 from django.contrib import messages 
 from django.views.generic import ListView, DetailView 
 from django.views.generic import UpdateView 
-from django.views.generic import DeleteView 
-from django.core.urlresolvers import reverse
+from django.views.generic import DeleteView  
+from django.views.generic.edit import FormMixin
+from django.core.urlresolvers import reverse 
+from django.db.models import Count
 
 # Create your views here. 
 def index(request): 
-     return render(request, 'main/login.html') 
+    
+
+    
+    return render(request, 'main/login.html') 
     
 def dashboard(request):  
-    now = str(datetime.date.today().strftime("%A %d.%m.%Y"))
-    return render(request,'main/index.html', {'date':now})
+    now = str(datetime.date.today().strftime("%A %d.%m.%Y")) 
+    today = datetime.date.today() 
+    events = Assignment.objects.filter(date=today).values('date')  
+    num = events.aggregate(data=Count('date')) 
+    return render(request,'main/index.html', {'date':now, 'number':num, 'filter':today})
 
 
 class storage(ListView): 
@@ -44,7 +52,11 @@ def clients(request):
     
 class assignments(ListView): 
     model = Assignment 
-    template_name = 'main/assignments.html'
+    template_name = 'main/assignments.html' 
+    
+
+        
+        
     
 def new_assignment(request): 
              # if this is a POST request we need to process the form data
@@ -101,9 +113,9 @@ def neweq(request):
 def eqadd(request): 
     eventname = request.session['event_name']  
     eqid = request.GET.get('eq', '') 
-    
+    equipment = Equipment.objects.get(pk=eqid)
    
-    Equipment.objects.filter(pk=eqid).update(event= eventname)
+    equipment.event.add(eventname)
     return redirect("/lager/chose")
     
     

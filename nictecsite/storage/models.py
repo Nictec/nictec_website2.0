@@ -9,7 +9,7 @@ class Equipment(models.Model):
     fabricator = models.CharField(max_length=30, default='-') 
     storeplace = models.IntegerField() 
     labor = models.CharField(max_length=1, choices=labor_choices) 
-    event = models.ForeignKey('Assignment', blank = True, null = True,) 
+    event = models.ManyToManyField('Assignment', blank = True,) 
    
    
     def __str__(self): 

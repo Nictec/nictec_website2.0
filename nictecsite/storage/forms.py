@@ -37,7 +37,9 @@ class neweventForm(forms.ModelForm):
         fields =['name', 'Type', 'city', 'street', 'date', 'GuestNumber', 'description'] 
 
     
+class FilterForm(forms.Form): 
     
+    filter = forms.ChoiceField(choices=labor_choices)
     
 
-       
+    
