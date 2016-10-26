@@ -10,12 +10,19 @@ class Equipment(models.Model):
     storeplace = models.IntegerField() 
     labor = models.CharField(max_length=1, choices=labor_choices) 
     event = models.ManyToManyField('Assignment', blank = True,) 
+    quantity = models.IntegerField(default=1, null = True) 
+   
    
    
     def __str__(self): 
         return self.name
     
-    
+#class Used_quantity(models.Model): 
+    #equipment = models.ManyToManyField('Equipment', blank = True) 
+    #assignment = models.ManyToManyField('Assignment', blank = True) 
+    #used_quantity =  models.PositiveIntegerField(default=0)
+
+
 class client(models.Model): 
     firstname = models.CharField(max_length=30) 
     secondname = models.CharField(max_length=30) 

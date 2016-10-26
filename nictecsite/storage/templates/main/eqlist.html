@@ -22,6 +22,10 @@ if (localStorage.getItem('filter')) {
     document.getElementById('filter').options[localStorage.getItem('filter')].selected = true;
 }
 </script>
+ 
+{% for message in messages %}
+    <div class="alert alert-{{ message.tags }}">{{ message }}</div>
+{% endfor %}
 
 <form method="get"> 
   <select name='filter' id='filter' onchange="this.form.submit()" > 

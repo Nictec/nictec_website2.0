@@ -11,13 +11,14 @@ class neweqForm(forms.ModelForm):
     name = forms.CharField(label="Name") 
     fabricator = forms.CharField(label="Hersteller") 
     storeplace = forms.IntegerField(label="Regal") 
-    labour = forms.ChoiceField(label = "Gewerk", choices=labor_choices)
+    labour = forms.ChoiceField(label = "Gewerk", choices=labor_choices) 
+    quantity = forms.IntegerField(label = "Anzahl")
     
      
     
     class Meta: 
         model = Equipment 
-        fields =['name', 'fabricator', 'storeplace', 'labour'] 
+        fields =['name', 'fabricator', 'storeplace', 'labour', 'quantity'] 
  
  
 

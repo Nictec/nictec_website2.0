@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*
 from django.shortcuts import render, redirect, HttpResponse
 import datetime 
 from .forms import neweqForm, neweventForm, FilterForm 
@@ -113,10 +114,15 @@ def neweq(request):
 def eqadd(request): 
     eventname = request.session['event_name']  
     eqid = request.GET.get('eq', '') 
-    equipment = Equipment.objects.get(pk=eqid)
+    equipment = Equipment.objects.get(pk=eqid) 
    
-    equipment.event.add(eventname)
-    return redirect("/lager/chose")
+    
+    if equipment.quantity > 0: 
+        equipment.event.add(eventname) 
+        Equipment.objects.filter(pk=eqid).update(quantity=-1)
+        return redirect("/lager/dashboard")
+    else: 
+        return redirect("/lager/chose")
     
     
     
