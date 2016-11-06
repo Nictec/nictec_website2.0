@@ -42,23 +42,50 @@ tr:nth-child(even) {
 
 <h2>Benötigtes equipment:</h2> 
 
+
+<script> 
+  function map(){  var field = document.getElementById("labor") 
+    var html = '{{equipment.labor}}'
+    var out = ''; 
+    var mapObj = { 
+        L:'Licht',
+        T:'Ton', 
+        R:'Rigging'
+    }; 
+    out = in.replace(/L|T|R/gi, function(matched){ 
+        return mapObj[matched];
+    })
+    field.innerHTML = out 
+                }
+    
+  
+</script> 
+
+
 <table> 
   <tr>
     <th>Hersteller</th> 
     <th>Name</th> 
     <th>Gewerk</th> 
+    <th>Benötigte Anzahl</th>
     
   </tr> 
-    {% for equipment in object.equipment_set.all %} 
+     
   
   <tr> 
+    {% for equipment in object.equipment_set.all %}
     <td>{{equipment.fabricator}}</td> 
     <td>{{equipment.name}}</td> 
-    <td>{{equipment.labor}}</td> 
-    
+    <td id="labor"></td> 
+    <script>map()</script>
+    {% for AssignmentQuantity in object.AssignmentQuantity_set.all  %}  
+    <td>{{AssignmentQuantity.used_quantity}}</td>
+    {%endfor%}
+    {%endfor%} 
+ 
     
   </tr> 
-    {%endfor%} 
+    
    
 </table>  
 
