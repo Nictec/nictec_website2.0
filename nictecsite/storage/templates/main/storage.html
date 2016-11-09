@@ -11,25 +11,72 @@
 {% block content %} 
  {% for message in messages %}
     <div class="alert alert-{{ message.tags }}">{{ message }}</div>
-{% endfor %}
+{% endfor %} 
+
+
+
 <a href="{% url "neweq" %}" class="btn btn-primary pull-right" role="button">Equipment einlagern</a> 
 <div id="list" style="padding-top:50px">
-<table class="table" style="border: 1px solid black"> 
-    {% for equipment in object_list %}
+<table class="table table-condensed" style="border: 1px solid black"> 
+
+    
+    
+    
+             <div class="modal fade" id="form-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content" style="height:15em; background-color:#d9d9d9;">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h4 class="modal-title">Modal title</h4>
+        </div>
+       <div id="form-modal-body" class="modal-body">
+          ...
+       </div>
+       <div class="modal-footer">
+         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+       </div>
+     </div>
+   </div>
+ </div> 
+     <tr> 
+         <th><h5>Name</h5></th> 
+         <th><h5>Optionen</h5></th>
+         <th><h5>Verfügbare Anzahl</h5></th> 
+    </tr>
+    
+    {% for equipment in object_list %} 
+       
         <tr>
-            <th>{{ equipment.name }} 
-                (<a href="{% url "storageupdate" pk=equipment.id %}">bearbeiten</a>) 
+            <th>{{ equipment.name }}</th>  
+            <th>   <!--<a href="{% url "storageupdate" pk=equipment.id %}" style="padding-left:2em"><button type="button" class="btn btn-default btn-sm">
+          <span class="glyphicon glyphicon-edit"></span> Bearbeiten
+        </button></a>--> 
+                <a href="{% url 'storageupdate' pk=equipment.id %}"><button type="button" class="btn btn-default btn-sm">
+          <span class="glyphicon glyphicon-edit"></span> Bearbeiten
+        </button></a> 
                 {% if equipment.id %}
-               (<a href="{% url "storagedelete" pk=equipment.id %}">löschen</a>)
-                {% endif %}
+               <a data-toggle="modal" href="{% url 'storagedelete' pk=equipment.id %}" data-target="#form-modal"><button type="button" class="btn btn-danger btn-sm">
+          <span class="glyphicon glyphicon-trash"></span> Löschen
+        </button></a> 
+                {% endif %}</th>
+            
+            
+            
+            <th> 
+                {{ equipment.quantity }}
             </th> 
+
             
             {% empty %}
             <th>Kein Equipment</th>
         </tr>
     </table> 
 {% endfor %} 
-</div>
+</div> 
+
+
+
+ 
 
         
         

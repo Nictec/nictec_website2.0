@@ -5,7 +5,9 @@
     <meta charset="utf-8">
     {% load staticfiles %} 
     <!--Bootstrap CDN-->
-    <link rel="stylesheet"     href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet"     href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous"> 
+      
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <!--custom css-->
     <link rel="stylesheet" href="{% static "storage/css/dashboard.css" %}">
     <title>{% block title %}{% endblock title %}</title>
@@ -48,7 +50,10 @@
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav> 
-    
+
+
+
+
     <div class="row affix-row" id="side">
     <div class="col-sm-3 col-md-2 affix-sidebar">
 		<div class="sidebar-nav">
@@ -97,20 +102,20 @@
             </ul>
           </div>
         </li>
-        <li class="active">
-          <a href="{% url 'clients' %}" data-toggle="collapse" data-target="#toggleDemo2" data-parent="#sidenav01" class="collapsed">
+        <li>
+          <a href="#" data-toggle="collapse" data-target="#toggleDemo2" data-parent="#sidenav01" class="collapsed">
           <span class="glyphicon glyphicon-user"></span> Kunden <span class="caret pull-right"></span>
           </a>
-          <div class="collapse" id="toggleDemo2" style="height: 0px;">
+          <div class="collapse" id="toggleDemo2" style="height: 50px; position:relative; z-index:1;">
             <ul class="nav nav-list">
-              <li><a href="#">asdf2.1</a></li>
-              <li><a href="#">Submenu2.2</a></li>
-              <li><a href="#">Submenu2.3</a></li>
+              <li><a href="{% url 'clients' %}">Liste</a></li>
+              <li><a href="#">unused1</a></li> 
+              <li><a href="#">unused1</a></li>
             </ul>
           </div>
         </li>
         <li><a href="{% url 'assignments' %}"><span class="glyphicon glyphicon-ok"></span> Aufträge</a></li>
-        <li><a href="{% url 'bills' %}"><span class="glyphicon glyphicon-usd"></span> Rechnungen <span class="badge pull-right">42</span></a></li>
+        <li><a href="{% url 'bills' %}"><span class="glyphicon glyphicon-usd"></span> Rechnungen <!--<span class="badge pull-right">42</span>--></a></li>
         <li><a href="{% url 'reservations' %}"><span class="glyphicon glyphicon-bell"></span> Reservierungen</a></li>
       </ul>
       </div><!--/.nav-collapse -->
@@ -120,7 +125,8 @@
 	<div class="col-sm-9 col-md-10 affix-content">  
         {% block content %}{% endblock content %}
 
-    </div>  
+    </div> 
+    </div>
           
     
         
@@ -129,7 +135,7 @@
 				
 
 	</div>
-</div> 
+
         
 
 
@@ -141,6 +147,9 @@
       
     
       
-    
+    <!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script> 
+
+       
   </body>
 </html>

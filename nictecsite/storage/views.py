@@ -7,7 +7,8 @@ from django.contrib import messages
 from django.views.generic import ListView, DetailView 
 from django.views.generic import UpdateView 
 from django.views.generic import DeleteView  
-from django.views.generic.edit import FormMixin
+from django.views.generic.edit import FormMixin 
+from custom_responses import AjaxTemplateMixin
 from django.core.urlresolvers import reverse 
 from django.db.models import Count
 
@@ -33,13 +34,16 @@ class storage(ListView):
 class storageupdate(UpdateView): 
     model = Equipment 
     template_name= 'main/storageupdate.html' 
+    ajax_template_name = 'main/storageupdate_inner.html'
     fields = ['name', 'fabricator', 'storeplace'] 
-    def get_success_url(self):
-        return reverse('storage')
+     
     
-class storagedelete(DeleteView): 
+
+    
+class storagedelete(AjaxTemplateMixin, DeleteView): 
       model = Equipment
       template_name = 'main/storagedelete.html' 
+      ajax_template_name= 'main/storagedelete_inner.html'
       def get_success_url(self): 
             return reverse('storage')
         
